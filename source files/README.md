@@ -29,6 +29,7 @@ First, run the below cells to load the heights and weights into memory.
 
 
 ```python
+# Run this cell without changes
 height = [68, 71, 61, 69, 71, 58, 72, 73, 58, 74, 
           61, 59, 69, 68, 64, 69, 72, 66, 65, 69]
 weight = [165, 201, 140, 170, 192, 125, 195, 205, 
@@ -67,31 +68,24 @@ So how do you do this? You can write a function that takes in a list, calculates
 
 
 ```python
+# Replace None with appropriate code
 
 def mean_normalize(var):
-    # Initialize a list for storing normalized values 
-    norm = [] 
+    # Initialize a list for storing normalized values
+    None
     
     # Calculate the mean of var
-    mean = sum(var)/len(var)
-        
-    # For each element in var, subtract the mean and add the result to norm
-    for i in var:
-        diff = i - mean
-        norm.append(diff)
+    None
+    
+    # For each element in var, subtract the mean and add the result to the new list
+    None
     
     # Return the new list
-    return norm
+    None
 
 mean_normalize([1, 2, 3, 4, 5]), mean_normalize([11, 22, 33, 44, 55])
+# ([-2.0, -1.0, 0.0, 1.0, 2.0], [-22.0, -11.0, 0.0, 11.0, 22.0])
 ```
-
-
-
-
-    ([-2.0, -1.0, 0.0, 1.0, 2.0], [-22.0, -11.0, 0.0, 11.0, 22.0])
-
-
 
 Great! You'll see that our function maintains the _variance_ of list elements and moves the mean to zero. As a quick test, you can visualize what exactly happens to the data with mean normalization.
 
@@ -99,40 +93,16 @@ Use the `mean_normalize()` function to create a new variable `height_normalized`
 
 
 ```python
-height_normalized = mean_normalize(height)
+# Mean normalize the height (replace None with appropriate code)
+height_normalized = None
 height_normalized
 ```
-
-
-
-
-    [1.1500000000000057,
-     4.150000000000006,
-     -5.849999999999994,
-     2.1500000000000057,
-     4.150000000000006,
-     -8.849999999999994,
-     5.150000000000006,
-     6.150000000000006,
-     -8.849999999999994,
-     7.150000000000006,
-     -5.849999999999994,
-     -7.849999999999994,
-     2.1500000000000057,
-     1.1500000000000057,
-     -2.8499999999999943,
-     2.1500000000000057,
-     5.150000000000006,
-     -0.8499999999999943,
-     -1.8499999999999943,
-     2.1500000000000057]
-
-
 
 Now, run the cell below to visualize the data before and after mean normalization. 
 
 
 ```python
+# Run this cell without changes
 import matplotlib.pyplot as plt
 %matplotlib inline
 
@@ -147,10 +117,6 @@ ax.set_ylabel("Count")
 
 ax.legend(loc="center");
 ```
-
-
-![png](index_files/index_7_0.png)
-
 
 There you go! The _shape_ of the data isn't changed, but the mean is just shifted! You can also try this for the `weight` variable if you wish.
 
@@ -172,31 +138,17 @@ Let's write a function that takes two iterables and returns their dot product.
 
 
 ```python
+# Replace None with appropriate code
 
 def dot_product(x, y):
-
-    total = 0 # Initialize a sum at zero
-    
-    # For all elements in the vectors, multiply and add to total
-    n = len(x) # Could alternatively use len(y); they must have the same length
-    for i in range(n): # Math notation starts at 1 but Python index starts at 0
-        product = x[i] * y[i] # Multiply together x and y values at index i
-        total += product # Add the current product to the total
-
-    return total
+    None
 
 a = [1, 2, 3]
 b = [4, 5, 6]
 
-dot_product(a, b)
+dot_product(a,b)
+#  32, calculated as (1*4 + 2*5 + 3*6)
 ```
-
-
-
-
-    32
-
-
 
 If you apply `mean_normalize` then `dot_product`, you have $\sum_{i=1}^{n}(x_i -\mu_x)(y_i - \mu_y)$ (the numerator of the covariance formula).
 
@@ -208,27 +160,23 @@ $$\frac{1}{n-1}\displaystyle\sum_{i=1}^{n}(x_i -\bar x)(y_i - \bar y)$$
 
 
 ```python
+# Replace None with appropriate code
+
 def covariance(x, y):
     # Mean normalize both lists
-    x_norm = mean_normalize(x)
-    y_norm = mean_normalize(y)
+    x_norm = None
+    y_norm = None
 
     # Calculate the numerator
-    numerator = dot_product(x_norm, y_norm)
+    numerator = None
 
     # Divide the numerator by n - 1 and return
-    n = len(x)
-    return numerator / (n - 1)
+    return None
+
 
 covariance(height, weight)
+# 144.75789473684208
 ```
-
-
-
-
-    144.75789473684208
-
-
 
 So, we have a covariance of about 144.8. Recall the questions posed at the beginning:
 
@@ -283,6 +231,7 @@ Let's use this helper function to calculate the standard deviation:
 
 
 ```python
+# Run this cell without changes
 from math import sqrt
 
 def stddev(var):
@@ -297,41 +246,31 @@ def stddev(var):
     return sqrt(variance)
 
 stddev(height)
+# 5.112162998801562
 ```
-
-
-
-
-    5.112162998801562
-
-
 
 Now, use the functions `covariance()` and `stddev()` to define a function, `correlation()` that calculates the correlation between two lists. 
 
 
 ```python
+# Calculate correlation between two variables using formula above
+# Replace None with appropriate code
 
 def correlation(x, y):
     # Find the numerator (covariance)
-    numerator = covariance(x, y)
+    numerator = None
     
     # Find standard deviations of both lists
-    s_x = stddev(x)
-    s_y = stddev(y)
+    s_x = None
+    s_y = None
 
     # Return numerator divided by multiplied standard deviations
-    return numerator / (s_x * s_y)
+    return None
 
 
 correlation(height, weight)
+# 0.9773995748246297
 ```
-
-
-
-
-    0.9773995748246297
-
-
 
 A correlation of 0.98, that's very close to 1! That means we can answer question 3: there is a **very strong** linear relationship between height and weight — at least for this particular sample.
 
@@ -343,6 +282,7 @@ A scatter plot of this sample of height and weight aligns well with this finding
 
 
 ```python
+# Run this cell without changes
 
 fig, ax = plt.subplots()
 
@@ -360,10 +300,6 @@ ax.set_ylabel("Weight (pounds)")
 ax.legend();
 ```
 
-
-![png](index_files/index_18_0.png)
-
-
 ## Simplifying the Process with NumPy
 
 The goal of this exercise was for you to develop a deeper understanding of these statistics and to practice writing Python functions.
@@ -372,6 +308,7 @@ In a professional data science setting, you would not write these functions by h
 
 
 ```python
+# Run this cell without changes
 import numpy as np
 ```
 
@@ -379,31 +316,22 @@ import numpy as np
 
 
 ```python
+# Run this cell without changes
+# NumPy calculates cov(height, height), cov(height, weight), cov(weight, height), and cov(weight, weight)
+# We only need height vs. weight so we extract just that value
 covariance_matrix = np.cov(height, weight)
 covariance_matrix[0][1]
 ```
-
-
-
-
-    144.75789473684205
-
-
 
 ### Correlation with NumPy
 
 
 ```python
+# Run this cell without changes
+# Same as covariance, NumPy returns a matrix but we only need one value
 correlation_matrix = np.corrcoef(height, weight)
 correlation_matrix[0][1]
 ```
-
-
-
-
-    0.9773995748246294
-
-
 
 That was a lot simpler than calculating it by hand!
 
